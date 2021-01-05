@@ -21,6 +21,7 @@ class TicketsUI {
         });
 
         this.container.insertAdjacentHTML('afterbegin', fragment)
+        this.renderedItems = document.querySelectorAll('.add-favorite');
     }
 
     clearContainer() {
@@ -52,9 +53,7 @@ class TicketsUI {
                 />
                 <span class="ticket-airline-name"
                 >${ticket.airline_name}</span>
-                <a class="waves-effect waves-light darken-1 add-favorite ml-auto">
-                    <i class="small material-icons red-text">favorite_border</i>
-                </a>
+                    <i class="small material-icons ml-auto red-text add-favorite" data-current-ticket='${JSON.stringify(ticket)}'>favorite_border</i>
             </div>
             <div class="ticket-destination d-flex align-items-center">
                 <div class="d-flex align-items-center mr-auto">
@@ -72,6 +71,7 @@ class TicketsUI {
             </div>
             <div class="ticket-additional-info">
                 <span class="ticket-transfers">Пересадок: ${ticket.transfers}</span>
+                <br>
                 <span class="ticket-flight-number">Номер рейса: ${ticket.flight_number}</span>
             </div>
             </div>

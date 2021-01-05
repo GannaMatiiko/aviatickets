@@ -1,3 +1,9 @@
+.wrapper-form {
+  background-image: url('https://img5.goodfon.ru/original/2047x1528/9/e9/poseidon-p-8-boeing-us-navy-protivolodochnyi-samolet-polet.jpg');
+  height: 94vh;
+  background-size: cover;
+}
+
 .d-flex {
   display: flex;
 }
@@ -41,7 +47,7 @@
 }
 
 .header .favorites {
-  margin-left: 20px;
+  margin-right: 30px;
 }
 
 .header .currency-select input.select-dropdown {
@@ -64,6 +70,9 @@
 
 .header .brand-logo {
   font-size: 1.5rem;
+}
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #7b1fa2 !important;
 }
 
 .favorites .dropdown-content {
@@ -108,6 +117,14 @@
 
 .favorites .delete-favorite {
   margin-top: 10px;
+}
+
+.favorite-item {
+  padding: 0 10px;
+}
+
+.tickets-sections {
+  margin-top: -350px;
 }
 
 .ticket-card {
@@ -166,6 +183,47 @@
   background: whitesmoke;
   font-weight: bold;
   font-size: 18px;
+}
+
+/* Form styles */
+.form-section .card {
+  margin-top: 70px !important;
+  background: rgba(255,255,255,0.8) !important;
+}
+.card-content {
+  display: flex;
+  flex-direction: column;
+}
+.card-content .input-field {
+  margin-right: 15px;
+  width: 100% !important;
+}
+.card-content input {
+  border-radius: 5px !important;
+  margin-right: 5px !important;
+  color: darkmagenta !important;
+  padding-left: 10px !important;
+  width: 96% !important;
+}
+.card-content input:focus {
+  box-shadow: none !important;
+}
+.input-field>label {
+  color: #4f9cfb !important;
+  padding-left: 10px;
+  outline: none;
+}
+
+/* Datepicker modification */
+.datepicker-date-display,
+.datepicker-table td.is-selected {
+  background-color: #2665a6 !important;
+  font-weight: 700 !important;
+}
+
+.datepicker-cancel, .datepicker-today, .datepicker-done,
+.datepicker-table td.is-today {
+  color: #2665a6 !important;
 }
 /*!
  * Materialize v1.0.0-rc.2 (http://materializecss.com)
