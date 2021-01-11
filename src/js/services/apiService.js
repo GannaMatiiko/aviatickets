@@ -11,6 +11,11 @@ class Api {
             return response.data
         } catch (error) {
             console.log(error)
+            M.toast({
+                html: 'Oops, some troubles with server',
+                displayLength: 2000,
+                classes: 'red darken-2'
+            })
             return Promise.reject(error) 
         }
     }
@@ -20,6 +25,11 @@ class Api {
             return response.data
         } catch (error) {
             console.log(error)
+            M.toast({
+                html: 'Oops, some troubles with server',
+                displayLength: 2000,
+                classes: 'red darken-2'
+            })
             return Promise.reject(error)
         }
     }
@@ -31,6 +41,11 @@ class Api {
             return response.data
         } catch (error) {
             console.log(error)
+            M.toast({
+                html: 'Oops, some troubles with server',
+                displayLength: 2000,
+                classes: 'red darken-2'
+            })
             return Promise.reject(error)
         }
     }
@@ -40,6 +55,11 @@ class Api {
             return response.data
         } catch (error) {
             console.log(error)
+            M.toast({
+                html: 'Oops, some troubles with server',
+                displayLength: 2000,
+                classes: 'red darken-2'
+            })
             return Promise.reject(error)
         }
     }

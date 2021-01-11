@@ -27,18 +27,26 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     ticketsUI.container.addEventListener('click', e => {
-        if (e.target.classList.contains('add-favorite')) {
-            e.target.innerHTML = 'favorite'
+        if (e.target.classList.contains('favorite-icon')) {
             let ticket = JSON.parse(e.target.dataset.currentTicket)
-            favorites.addFavTicket(ticket)
+            if (favorites.isExistFav(ticket)) {
+                e.target.innerHTML = 'favorite_border'
+                e.target.classList.remove('j-add-favorite')
+                e.target.classList.add('j-delete-favorite')
+                favorites.deleteFavTicket(ticket)
+            } else { 
+                e.target.innerHTML = 'favorite'
+                e.target.classList.remove('j-delete-favorite')
+                e.target.classList.add('j-add-favorite')
+                favorites.addFavTicket(ticket)
+            }
         }
     })
 
     favoritesUI.dropdown.addEventListener('click', e => {
-        if (e.target.classList.contains('delete-favorite')) {
+        if (e.target.classList.contains('j-delete-favorite')) {
             let deletedTicket = JSON.parse(e.target.dataset.currentTicket)
             favorites.deleteFavTicket(deletedTicket)
-            favoritesUI.renderFavorites(favorites.favTickets)
             ticketsUI.renderedItems.forEach(el => {
                 if (el.dataset.currentTicket === JSON.stringify(deletedTicket)) {
                   el.innerHTML = 'favorite_border'

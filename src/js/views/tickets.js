@@ -1,4 +1,5 @@
 import currencyUI from './currency'
+import favorites from '../store/favorites'
 
 class TicketsUI {
     constructor(currency) {
@@ -15,13 +16,15 @@ class TicketsUI {
 
         const currency = this.currencySymbol()
         let fragment = ''
+
         tickets.forEach(ticket => {
-            const template = TicketsUI.ticketTemplate(ticket, currency)
+            let isFavorite = favorites.favTicketIds.includes(`${ticket.airline}${ticket.flight_number}`)
+            const template = TicketsUI.ticketTemplate(ticket, currency, isFavorite)
             fragment += template
         });
 
         this.container.insertAdjacentHTML('afterbegin', fragment)
-        this.renderedItems = document.querySelectorAll('.add-favorite');
+        this.renderedItems = document.querySelectorAll('.j-add-favorite');
     }
 
     clearContainer() {
@@ -42,7 +45,7 @@ class TicketsUI {
         `
     }
 
-    static ticketTemplate(ticket, currency) {
+    static ticketTemplate(ticket, currency, isFavorite) {
         return `
         <div class="col s12 m6">
             <div class="card ticket-card">
@@ -53,7 +56,9 @@ class TicketsUI {
                 />
                 <span class="ticket-airline-name"
                 >${ticket.airline_name}</span>
-                    <i class="small material-icons ml-auto red-text add-favorite" data-current-ticket='${JSON.stringify(ticket)}'>favorite_border</i>
+                    <i class="small material-icons ml-auto red-text favorite-icon j-add-favorite" data-current-ticket='${JSON.stringify(ticket)}'>
+                    ${isFavorite ? 'favorite' : 'favorite_border'}
+                    </i>
             </div>
             <div class="ticket-destination d-flex align-items-center">
                 <div class="d-flex align-items-center mr-auto">

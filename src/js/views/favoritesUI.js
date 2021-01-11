@@ -45,11 +45,12 @@ class FavoritesUI {
                 <span class="ticket-price ml-auto">${currency}${ticket.price}</span>
             </div>
             <div class="ticket-additional-info">
-                <span class="ticket-transfers">${ticket.transfers}</span>
+                <span class="ticket-transfers">Пересадок: ${ticket.transfers}</span>
+                <br>
                 <span class="ticket-flight-number">Номер рейса:  ${ticket.flight_number}</span>
             </div>
             <a
-                class="waves-effect waves-light btn-small pink darken-3 delete-favorite ml-auto" data-current-ticket='${JSON.stringify(ticket)}'
+                class="waves-effect waves-light btn-small pink darken-3 j-delete-favorite ml-auto" data-current-ticket='${JSON.stringify(ticket)}'
                 >Delete</a
             >
             </div>

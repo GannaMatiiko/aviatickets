@@ -1,7 +1,19 @@
 .wrapper-form {
   background-image: url('https://img5.goodfon.ru/original/2047x1528/9/e9/poseidon-p-8-boeing-us-navy-protivolodochnyi-samolet-polet.jpg');
-  height: 94vh;
+  height: 93.5vh;
   background-size: cover;
+
+}
+@media screen and (max-width: 1024px) and (min-width: 640px) {
+  .wrapper-form {
+    background-image: url('https://img5.goodfon.ru/original/1024x1024/9/e9/poseidon-p-8-boeing-us-navy-protivolodochnyi-samolet-polet.jpg?d=1');
+  }
+}
+@media screen and (max-width: 639px) and (min-width: 320px) {
+  .wrapper-form {
+    background-image: url('https://img5.goodfon.ru/original/640x480/9/e9/poseidon-p-8-boeing-us-navy-protivolodochnyi-samolet-polet.jpg');
+    background-position: center;
+  }
 }
 
 .d-flex {
@@ -71,6 +83,15 @@
 .header .brand-logo {
   font-size: 1.5rem;
 }
+
+@media only screen and (max-width: 992px) {
+  nav .brand-logo {
+    transform: translateX(0) !important;
+  }
+}
+
+
+/* Favorites */
 .dropdown-content li>a, .dropdown-content li>span {
   color: #7b1fa2 !important;
 }
@@ -78,6 +99,13 @@
 .favorites .dropdown-content {
   width: 400px !important;
   color: #000;
+}
+
+@media screen and (max-width: 639px) and (min-width: 320px) {
+  .favorites .dropdown-content {
+    width: auto !important;
+    margin: 15px !important;
+  }
 }
 
 .favorites .favorite-item-airline-img {
@@ -115,7 +143,7 @@
   font-size: 14px;
 }
 
-.favorites .delete-favorite {
+.favorites .j-delete-favorite {
   margin-top: 10px;
 }
 
@@ -124,7 +152,12 @@
 }
 
 .tickets-sections {
-  margin-top: -350px;
+  margin-top: -250px;
+}
+@media (max-width: 510px) {
+  .tickets-sections {
+    margin-top: -20%;
+  }
 }
 
 .ticket-card {
@@ -145,6 +178,12 @@
 .ticket-destination {
   margin-bottom: 10px;
   border-bottom: 1px dashed gray;
+}
+@media (max-width: 900px) {
+  .ticket-destination {
+    flex-direction: column;
+    align-items: flex-end;
+  }
 }
 
 .ticket-destination .ticket-city {
@@ -173,10 +212,6 @@
   font-weight: bold;
 }
 
-.ticket-card .add-favorite {
-  margin-top: 10px;
-}
-
 .tickets-empty-res-msg {
   padding: 10px 15px;
   text-align: center;
@@ -194,6 +229,12 @@
   display: flex;
   flex-direction: column;
 }
+@media (max-width: 510px) {
+  .card-content .col {
+    flex-direction: column;
+  }
+}
+
 .card-content .input-field {
   margin-right: 15px;
   width: 100% !important;
@@ -212,6 +253,9 @@
   color: #4f9cfb !important;
   padding-left: 10px;
   outline: none;
+}
+.input-field>label:not(.label-icon).active {
+  transform: translateY(-20px) scale(0.8) !important;
 }
 
 /* Datepicker modification */

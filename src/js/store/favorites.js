@@ -1,23 +1,15 @@
 import favoritesUI from '../views/favoritesUI'
-import ticketsUI from '../views/tickets'
 
 class Favorites {
     constructor() {
         this.favTickets = []
+        this.favTicketIds = []
         this.dropdownBtn = document.querySelector('.dropdown-trigger')
     }
     
     addFavTicket(ticket) {
-        if (this.isExistFav(ticket)) {
-            M.toast({
-                html: 'Already liked!',
-                displayLength: 2000,
-                classes: 'red darken-3'
-            })
-            return
-        }
-
         this.favTickets.push(ticket)
+        this.favTicketIds.push(`${ticket.airline}${ticket.flight_number}${ticket.departure_at}`)
         M.toast({
             html: 'Added to favorites',
             displayLength: 2000,
@@ -28,7 +20,7 @@ class Favorites {
     }
 
     isExistFav(ticket) {
-        return this.favTickets.some(item => JSON.stringify(item) === JSON.stringify(ticket))
+        return this.favTicketIds.some(item => item === `${ticket.airline}${ticket.flight_number}${ticket.departure_at}`)
     }
 
     deleteFavTicket(ticket) {
@@ -40,6 +32,11 @@ class Favorites {
         this.favTickets = this.favTickets.filter(item => {
             return JSON.stringify(item) != JSON.stringify(ticket)
         })
+        this.favTicketIds = this.favTicketIds.filter(item => {
+            return item != `${ticket.airline}${ticket.flight_number}${ticket.departure_at}`
+        })
+
+        favoritesUI.renderFavorites(this.favTickets)
     }
 }
 
